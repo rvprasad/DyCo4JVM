@@ -5,13 +5,13 @@
  *
  * Author: Venkatesh-Prasad Ranganath (rvprasad)
  */
-package sindu.instrumenter;
+package sindu.jvm.instrumentation.logging;
 
 import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;
 import org.objectweb.asm.Type;
 import org.objectweb.asm.commons.Method;
-import sindu.instrumenter.Logger.Action;
+import sindu.jvm.instrumentation.logging.Logger.Action;
 
 public class LoggingInstrumentationHelper {
 
@@ -100,7 +100,7 @@ public class LoggingInstrumentationHelper {
     }
 
     public static void emitLogReturn(final MethodVisitor mv,
-        final Type returnType) {
+            final Type returnType) {
         final int _retSort = returnType.getSort();
         if (_retSort != Type.VOID) {
             if (_retSort == Type.LONG || _retSort == Type.DOUBLE) {
@@ -114,7 +114,8 @@ public class LoggingInstrumentationHelper {
     }
 
     public static void emitLogField(final MethodVisitor mv,
-        final String fieldName, final Type fieldType, final Action action) {
+            final String fieldName, final Type fieldType, 
+            final Action action) {
         final int _fieldSort = fieldType.getSort();
         if (_fieldSort == Type.LONG || _fieldSort == Type.DOUBLE) {
             mv.visitInsn(Opcodes.DUP2_X1);
@@ -133,7 +134,7 @@ public class LoggingInstrumentationHelper {
     }
 
     public static void emitLogArray(final MethodVisitor mv,
-        final Action action) {        
+            final Action action) {        
         final Type _a = Type.getType(Action.class);
         final String _name = action.toString();
         mv.visitFieldInsn(Opcodes.GETSTATIC, _a.getInternalName(), _name, 
@@ -142,7 +143,7 @@ public class LoggingInstrumentationHelper {
     }
     
     public static void emitSwapTwoWordsAndOneWord(final MethodVisitor mv,
-        final Type tos) {
+            final Type tos) {
         if (tos.getSort() == Type.LONG
                 || tos.getSort() == Type.DOUBLE) {
             mv.visitInsn(Opcodes.DUP2_X1);
@@ -153,7 +154,7 @@ public class LoggingInstrumentationHelper {
     }
 
     public static void emitSwapOneWordAndTwoWords(final MethodVisitor mv,
-        final Type tos) {
+            final Type tos) {
         if (tos.getSort() == Type.LONG
                 || tos.getSort() == Type.DOUBLE) {
             mv.visitInsn(Opcodes.DUP_X2);
@@ -164,13 +165,13 @@ public class LoggingInstrumentationHelper {
     }
 
     public static void emitInvokeLog(final MethodVisitor mv,
-        final Method method) {
+            final Method method) {
         mv.visitMethodInsn(Opcodes.INVOKESTATIC, OWNER,
             method.getName(), method.getDescriptor());
     }
 
     public static void emitConvertToString(final MethodVisitor mv,
-        final Type type) {
+            final Type type) {
         switch (type.getSort()) {
             case Type.ARRAY:
                 mv.visitMethodInsn(Opcodes.INVOKESTATIC, OWNER, "toString",

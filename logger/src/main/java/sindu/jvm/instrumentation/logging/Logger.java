@@ -5,7 +5,7 @@
  *
  * Author: Venkatesh-Prasad Ranganath (rvprasad)
  */
-package sindu.instrumenter;
+package sindu.jvm.instrumentation.logging;
 
 import java.io.BufferedOutputStream;
 import java.io.File;
@@ -107,14 +107,14 @@ public class Logger {
     }
 
     public static void logField(final Object receiver, 
-        final String fieldValue, final String fieldName, 
-        final Action action) {
+            final String fieldValue, final String fieldName, 
+            final Action action) {
         log(action.toString().concat("F"), fieldName, 
             receiver == null ? "" : toString(receiver), fieldValue);
     }
     
     public static void logArray(final Object array, final int index, 
-        final String value, final Action action) {
+            final String value, final Action action) {
         log(action.toString().concat("A"), Integer.toString(index),
             toString(array), value);
     }
