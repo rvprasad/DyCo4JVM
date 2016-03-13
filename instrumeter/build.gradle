@@ -1,0 +1,38 @@
+// Apply the java plugin to add support for Java
+apply plugin: 'java'
+
+// In this section you declare where to find the dependencies of your project
+repositories {
+    jcenter()
+    flatDir {
+        dirs 'libs'
+    }
+}
+
+// In this section you declare the dependencies for your production and test code
+dependencies {
+    compile 'org.ow2.asm:asm:5.1'
+    compile 'org.ow2.asm:asm-commons:5.1'
+    compile name: "$JAVA_DYN_INFO_COLLECTOR_LOGGING"
+
+    testCompile 'junit:junit:4.12'
+}
+
+task copyLogger(type: Copy) {
+    from "../logging/build/libs/"
+    into "./libs"
+    include("**/${JAVA_DYN_INFO_COLLECTOR_LOGGING}.jar")
+}
+
+task copyLibs() { }
+
+copyLibs.dependsOn copyLogger
+compileJava.dependsOn copyLibs
+
+task wrapper(type: Wrapper) {
+    gradleVersion = "2.11"
+}
+
+
+
+version = 0.1
