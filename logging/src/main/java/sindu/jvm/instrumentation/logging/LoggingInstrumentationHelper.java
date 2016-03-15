@@ -19,30 +19,30 @@ public class LoggingInstrumentationHelper {
         try {
             OWNER = Logger.class.getName().replace(".", "/");
             LOG_STRING = Method.getMethod(Logger.class.getMethod("log",
-                    new Class[]{String.class}));
+                    new Class<?>[]{String.class}));
             LOG_METHOD_ENTRY = Method.getMethod(Logger.class.getMethod(
-                    "logMethodEntry", new Class[]{String.class}));
+                    "logMethodEntry", new Class<?>[]{String.class}));
             LOG_METHOD_EXIT = Method.getMethod(Logger.class.getMethod(
-                    "logMethodExit", new Class[]{String.class,
+                    "logMethodExit", new Class<?>[]{String.class,
                         Character.TYPE}));
             LOG_ARGUMENT = Method.getMethod(Logger.class.getMethod(
-                    "logArgument", new Class[]{Byte.TYPE,
+                    "logArgument", new Class<?>[]{Byte.TYPE,
                         String.class}));
             LOG_RETURN = Method.getMethod(Logger.class.getMethod(
-                    "logReturn", new Class[]{String.class}));
+                    "logReturn", new Class<?>[]{String.class}));
             LOG_FIELD = Method.getMethod(Logger.class.getMethod(
-                    "logField", new Class[]{Object.class,
+                    "logField", new Class<?>[]{Object.class,
                         String.class,
                         String.class,
                         Action.class}));
             LOG_ARRAY = Method.getMethod(Logger.class.getMethod(
-                    "logArray", new Class[]{Object.class,
+                    "logArray", new Class<?>[]{Object.class,
                         Integer.TYPE,
                         String.class,
                         Action.class}));
             LOG_EXCEPTION = Method.getMethod(
                     Logger.class.getMethod("logException",
-                    new Class[]{ Throwable.class}));
+                    new Class<?>[]{ Throwable.class}));
         } catch (final NoSuchMethodException _ex) {
             throw new RuntimeException(_ex);
         } catch (final SecurityException _ex) {
@@ -167,7 +167,7 @@ public class LoggingInstrumentationHelper {
     public static void emitInvokeLog(final MethodVisitor mv,
             final Method method) {
         mv.visitMethodInsn(Opcodes.INVOKESTATIC, OWNER,
-            method.getName(), method.getDescriptor());
+            method.getName(), method.getDescriptor(), false);
     }
 
     public static void emitConvertToString(final MethodVisitor mv,
@@ -175,43 +175,43 @@ public class LoggingInstrumentationHelper {
         switch (type.getSort()) {
             case Type.ARRAY:
                 mv.visitMethodInsn(Opcodes.INVOKESTATIC, OWNER, "toString",
-                        "(Ljava/lang/Object;)Ljava/lang/String;");
+                        "(Ljava/lang/Object;)Ljava/lang/String;", false);
                 break;
             case Type.BOOLEAN:
                 mv.visitMethodInsn(Opcodes.INVOKESTATIC, OWNER, "toString",
-                        "(Z)Ljava/lang/String;");
+                        "(Z)Ljava/lang/String;", false);
                 break;
             case Type.BYTE:
                 mv.visitMethodInsn(Opcodes.INVOKESTATIC, OWNER, "toString",
-                        "(B)Ljava/lang/String;");
+                        "(B)Ljava/lang/String;", false);
                 break;
             case Type.CHAR:
                 mv.visitMethodInsn(Opcodes.INVOKESTATIC, OWNER, "toString",
-                        "(C)Ljava/lang/String;");
+                        "(C)Ljava/lang/String;", false);
                 break;
             case Type.DOUBLE:
                 mv.visitMethodInsn(Opcodes.INVOKESTATIC, OWNER, "toString",
-                        "(D)Ljava/lang/String;");
+                        "(D)Ljava/lang/String;", false);
                 break;
             case Type.FLOAT:
                 mv.visitMethodInsn(Opcodes.INVOKESTATIC, OWNER, "toString",
-                        "(F)Ljava/lang/String;");
+                        "(F)Ljava/lang/String;", false);
                 break;
             case Type.INT:
                 mv.visitMethodInsn(Opcodes.INVOKESTATIC, OWNER, "toString",
-                        "(I)Ljava/lang/String;");
+                        "(I)Ljava/lang/String;", false);
                 break;
             case Type.LONG:
                 mv.visitMethodInsn(Opcodes.INVOKESTATIC, OWNER, "toString",
-                        "(J)Ljava/lang/String;");
+                        "(J)Ljava/lang/String;", false);
                 break;
             case Type.SHORT:
                 mv.visitMethodInsn(Opcodes.INVOKESTATIC, OWNER, "toString",
-                        "(S)Ljava/lang/String;");
+                        "(S)Ljava/lang/String;", false);
                 break;
             case Type.OBJECT:
                 mv.visitMethodInsn(Opcodes.INVOKESTATIC, OWNER, "toString",
-                        "(Ljava/lang/Object;)Ljava/lang/String;");
+                        "(Ljava/lang/Object;)Ljava/lang/String;", false);
                 break;
             default:
                 throw new RuntimeException("Unknown type"
