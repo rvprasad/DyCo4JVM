@@ -12,6 +12,9 @@ import java.util.List;
 import org.objectweb.asm.ClassVisitor;
 import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.stream.Stream;
@@ -29,13 +32,13 @@ public class InstrumenterCLI {
                     + "fully-qualified paths to classes to instrument.");
         }
 
-        final Set<String> _tmp1 = new HashSet(args);
+        final Set<String> _tmp1 = new HashSet<>(Arrays.asList(args));
 
-        Stream.of(_tmp1).parallel().forEach(_arg -> {
+        _tmp1.parallelStream().forEach(_arg -> {
             try {
                 final File _src = new File(_arg);
                 final File _trg = new File(_arg + ".orig");
-                final byte[] _b = FileUtils.readFileToByteArray(src);
+                final byte[] _b = FileUtils.readFileToByteArray(_src);
                 final ClassReader _cr = new ClassReader(_b);
                 final ClassWriter _cw = new ClassWriter(_cr, 
                         ClassWriter.COMPUTE_MAXS);

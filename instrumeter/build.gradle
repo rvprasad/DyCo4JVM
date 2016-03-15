@@ -13,6 +13,8 @@ repositories {
 dependencies {
     compile 'org.ow2.asm:asm:5.1'
     compile 'org.ow2.asm:asm-commons:5.1'
+    compile 'commons-io:commons-io:2.4'
+
     compile name: "$JAVA_DYN_INFO_COLLECTOR_LOGGING"
 
     testCompile 'junit:junit:4.12'
@@ -33,6 +35,9 @@ task wrapper(type: Wrapper) {
     gradleVersion = "2.11"
 }
 
+compileJava {
+    options.compilerArgs << "-Xlint"
+}
 
 
 version = 0.1

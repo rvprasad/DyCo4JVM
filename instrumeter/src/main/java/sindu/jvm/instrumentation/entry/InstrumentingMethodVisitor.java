@@ -32,7 +32,7 @@ class InstrumentingMethodVisitor extends MethodVisitor {
         mv.visitTypeInsn(Opcodes.NEW, "java/lang/StringBuilder");
         mv.visitInsn(Opcodes.DUP);
         mv.visitMethodInsn(Opcodes.INVOKESPECIAL, "java/lang/StringBuilder", 
-                "<init>", "()V");
+            "<init>", "()V", false);
 
         // load entry string onto operand stack
         StringBuilder msg = new StringBuilder();
@@ -41,12 +41,14 @@ class InstrumentingMethodVisitor extends MethodVisitor {
         
         // append entry string to StringBuilder onto operand stack
         mv.visitMethodInsn(Opcodes.INVOKEVIRTUAL, "java/lang/StringBuilder", 
-                "append", "(Ljava/lang/String;)Ljava/lang/StringBuilder;");
+            "append", "(Ljava/lang/String;)Ljava/lang/StringBuilder;", 
+            false);
         
         // invoke ToString() on StringBuilder
         mv.visitMethodInsn(Opcodes.INVOKEVIRTUAL, "java/lang/StringBuilder", 
-                "toString", "()Ljava/lang/String;");
+            "toString", "()Ljava/lang/String;", false);
         
-        RuntimeLoggerHelper.emitInvokeLog(mv, RuntimeLoggerHelper.LOG_STRING);
+        LoggingInstrumentationHelper.emitInvokeLog(mv,
+            LoggingInstrumentationHelper.LOG_STRING);
     }
 }
