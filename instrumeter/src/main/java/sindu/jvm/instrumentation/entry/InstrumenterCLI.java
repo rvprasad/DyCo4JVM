@@ -32,9 +32,9 @@ public class InstrumenterCLI {
                     + "fully-qualified paths to classes to instrument.");
         }
 
-        final Set<String> _tmp1 = new HashSet<>(Arrays.asList(args));
+        final Set<String> _filenames = new HashSet<>(Arrays.asList(args));
 
-        _tmp1.parallelStream().forEach(_arg -> {
+        _filenames.parallelStream().forEach(_arg -> {
             try {
                 final File _src = new File(_arg);
                 final File _trg = new File(_arg + ".orig");

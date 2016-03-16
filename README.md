@@ -1,2 +1,2 @@
-# java-dynamic-info-collector
+# java-dynamic-info-collection-tools
 Instrumentation based dynamic information collector for JVM based code.
