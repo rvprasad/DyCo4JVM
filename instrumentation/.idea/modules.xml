@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/jvm-dynamic-info-collection-instrumentation.iml" filepath="$PROJECT_DIR$/jvm-dynamic-info-collection-instrumentation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/jvm-dynamic-info-collection-instrumentation.iml" filepath="$PROJECT_DIR$/.idea/modules/jvm-dynamic-info-collection-instrumentation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/jvm-dynamic-info-collection-instrumentation_main.iml" filepath="$PROJECT_DIR$/.idea/modules/jvm-dynamic-info-collection-instrumentation_main.iml" group="jvm-dynamic-info-collection-instrumentation" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/jvm-dynamic-info-collection-instrumentation_test.iml" filepath="$PROJECT_DIR$/.idea/modules/jvm-dynamic-info-collection-instrumentation_test.iml" group="jvm-dynamic-info-collection-instrumentation" />
     </modules>
   </component>
 </project>
