@@ -18,6 +18,8 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.8">
+      <module name="dyco4jvm-instrumentation_main" target="1.8" />
+      <module name="dyco4jvm-instrumentation_test" target="1.8" />
       <module name="jvm-dynamic-info-collection-instrumentation_main" target="1.8" />
       <module name="jvm-dynamic-info-collection-instrumentation_test" target="1.8" />
     </bytecodeTargetLevel>
