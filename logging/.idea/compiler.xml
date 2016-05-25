@@ -18,6 +18,8 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.8">
+      <module name="dyco4j-logging_main" target="1.8" />
+      <module name="dyco4j-logging_test" target="1.8" />
       <module name="dyco4jvm-logging_main" target="1.8" />
       <module name="dyco4jvm-logging_test" target="1.8" />
     </bytecodeTargetLevel>
