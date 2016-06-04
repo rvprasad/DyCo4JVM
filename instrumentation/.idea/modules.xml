@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/dyco4jvm-instrumentation.iml" filepath="$PROJECT_DIR$/.idea/modules/dyco4jvm-instrumentation.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/dyco4jvm-instrumentation_main.iml" filepath="$PROJECT_DIR$/.idea/modules/dyco4jvm-instrumentation_main.iml" group="dyco4jvm-instrumentation" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/dyco4jvm-instrumentation_test.iml" filepath="$PROJECT_DIR$/.idea/modules/dyco4jvm-instrumentation_test.iml" group="dyco4jvm-instrumentation" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/dyco4j-instrumentation.iml" filepath="$PROJECT_DIR$/.idea/modules/dyco4j-instrumentation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/dyco4j-instrumentation_main.iml" filepath="$PROJECT_DIR$/.idea/modules/dyco4j-instrumentation_main.iml" group="dyco4j-instrumentation" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/dyco4j-instrumentation_test.iml" filepath="$PROJECT_DIR$/.idea/modules/dyco4j-instrumentation_test.iml" group="dyco4j-instrumentation" />
     </modules>
   </component>
 </project>
