@@ -3,7 +3,9 @@
     <words>
       <w>clinit</w>
       <w>dyco</w>
+      <w>geta</w>
       <w>insn</w>
+      <w>puta</w>
     </words>
   </dictionary>
 </component>
