@@ -4,8 +4,10 @@
       <w>clinit</w>
       <w>dyco</w>
       <w>geta</w>
+      <w>getf</w>
       <w>insn</w>
       <w>puta</w>
+      <w>putf</w>
     </words>
   </dictionary>
 </component>
