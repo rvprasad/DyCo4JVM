@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/dyco4j-utitlity.iml" filepath="$PROJECT_DIR$/.idea/modules/dyco4j-utitlity.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/dyco4j-utility.iml" filepath="$PROJECT_DIR$/.idea/modules/dyco4j-utility.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/dyco4j-utility_main.iml" filepath="$PROJECT_DIR$/.idea/modules/dyco4j-utility_main.iml" group="dyco4j-utility" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/dyco4j-utility_test.iml" filepath="$PROJECT_DIR$/.idea/modules/dyco4j-utility_test.iml" group="dyco4j-utility" />
     </modules>
   </component>
 </project>
