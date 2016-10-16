@@ -2,6 +2,7 @@
   <library name="Gradle: :dyco4j-logging-0.6:">
     <CLASSES>
       <root url="file://$PROJECT_DIR$/Could not find :dyco4j-logging-0.6:." />
+      <root url="jar://$PROJECT_DIR$/libs/dyco4j-logging-0.6.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
